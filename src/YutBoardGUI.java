@@ -1,17 +1,94 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
 public class YutBoardGUI extends JFrame {
     private final String boardType;
+    private final int numPlayers;
+    private final int numPieces;
 
-    public YutBoardGUI(String boardType) {
+    public YutBoardGUI(String boardType, int numPlayers, int numPieces) {
         this.boardType = boardType;
+        this.numPlayers = numPlayers;
+        this.numPieces = numPieces;
         setTitle("윷놀이 판 (" + boardType + ")");
-        setSize(600, 650);
+        setSize(600, 850);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        add(new BoardPanel());
+
+        setLayout(new BorderLayout());
+        add(createPlayerInfoPanel(), BorderLayout.NORTH);
+        add(new BoardPanel(), BorderLayout.CENTER);
+        add(createControlPanel(), BorderLayout.SOUTH);
+    }
+
+    private JPanel createPlayerInfoPanel() {
+        JPanel panel = new JPanel(new GridLayout(numPlayers, 1));
+        for (int i = 1; i <= numPlayers; i++) {
+            JLabel label = new JLabel("Player " + i + " - 남은 말: " + numPieces);
+            panel.add(label);
+        }
+        return panel;
+    }
+
+    private JPanel createControlPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
+
+        JPanel yutPanel = new JPanel();
+        yutPanel.setBorder(BorderFactory.createTitledBorder("윷 던지기"));
+        String[] results = {"도", "개", "걸", "윷", "모"};
+        for (String result : results) {
+            JButton btn = new JButton(result);
+            btn.addActionListener(e -> handleYutResult(result));
+            yutPanel.add(btn);
+        }
+
+        JButton randomBtn = new JButton("Random");
+        randomBtn.addActionListener(e -> {
+            String[] randResults = {"도", "개", "걸", "윷", "모"};
+            int idx = (int) (Math.random() * randResults.length);
+            handleYutResult(randResults[idx]);
+        });
+        yutPanel.add(randomBtn);
+
+        panel.add(yutPanel, BorderLayout.NORTH);
+        panel.add(createPieceSelectionPanel(), BorderLayout.SOUTH);
+
+        return panel;
+    }
+
+    private JPanel createPieceSelectionPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(numPlayers, 1));  // 플레이어 수만큼 행
+
+        for (int player = 1; player <= numPlayers; player++) {
+            JPanel playerPanel = new JPanel();
+            playerPanel.setBorder(BorderFactory.createTitledBorder("플레이어 " + player));
+
+            for (int piece = 1; piece <= numPieces; piece++) {
+                final int currentPlayer = player;
+                final int currentPiece = piece;
+                JButton btn = new JButton("말 " + currentPiece);
+                btn.addActionListener(e -> handlePieceSelection(currentPlayer, currentPiece));
+                playerPanel.add(btn);
+            }
+
+            panel.add(playerPanel);
+        }
+
+        return panel;
+    }
+
+    private void handleYutResult(String result) {
+        JOptionPane.showMessageDialog(this, "선택된 윷 결과: " + result);
+        // TODO: 게임 진행 로직과 연결 필요
+    }
+
+    private void handlePieceSelection(int playerNumber, int pieceNumber) {
+        JOptionPane.showMessageDialog(this, "선택된 플레이어: " + playerNumber + ", 말: " + pieceNumber);
+        // TODO: 실제 말 이동 로직과 연결
     }
 
     class BoardPanel extends JPanel {
@@ -35,6 +112,8 @@ public class YutBoardGUI extends JFrame {
 
             drawPolygonBoard(g2d, sides);
         }
+
+
 
         private void drawPolygonBoard(Graphics2D g, int sides) {
             double angleStep = 2 * Math.PI / sides;
@@ -61,6 +140,19 @@ public class YutBoardGUI extends JFrame {
 
             for (Point2D corner : corners) {
                 g.drawLine(center.x, center.y, (int) corner.getX(), (int) corner.getY());
+
+                // 꼭짓점 원
+                drawCircle(g, (int) corner.getX(), (int) corner.getY(), CROSS_SIZE);
+
+                // 중간 원 2개 (1/3, 2/3 위치)
+                double dx = corner.getX() - center.x;
+                double dy = corner.getY() - center.y;
+
+                for (double r : new double[]{1.0 / 3, 2.0 / 3}) {
+                    int cx = (int) (center.x + dx * r);
+                    int cy = (int) (center.y + dy * r);
+                    drawCircle(g, cx, cy, CELL_SIZE);
+                }
             }
 
             for (int i = 0; i < sides; i++) {
@@ -92,11 +184,28 @@ public class YutBoardGUI extends JFrame {
                     startIdx = i;
                 }
             }
-            g.drawString("출발", (int) corners[startIdx].getX() - 15, (int) corners[startIdx].getY() + 5);
+            // 출발 원의 좌표
+            int sx = (int) corners[startIdx].getX();
+            int sy = (int) corners[startIdx].getY();
+
+            // 노란색으로 채우기
+            g.setColor(Color.YELLOW);
+            g.fillOval(sx - CROSS_SIZE / 2, sy - CROSS_SIZE / 2, CROSS_SIZE, CROSS_SIZE);
+
+            // 테두리 검은색 원 다시 그리기
+            g.setColor(Color.BLACK);
+            g.drawOval(sx - CROSS_SIZE / 2, sy - CROSS_SIZE / 2, CROSS_SIZE, CROSS_SIZE);
+
+            // 출발 텍스트 표시
+            g.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+            g.drawString("출발", sx - 15, sy + 5);
         }
 
         private void drawCircle(Graphics2D g, int x, int y, int size) {
             g.drawOval(x - size / 2, y - size / 2, size, size);
         }
     }
+
+
+
 }

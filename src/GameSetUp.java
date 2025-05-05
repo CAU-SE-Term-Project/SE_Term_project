@@ -55,9 +55,12 @@ public class GameSetUp extends JFrame {
     }
 
     private void launchBoard() {
+        int numPlayers = Integer.parseInt(playersGroup.getSelection().getActionCommand());
+        int numPieces = Integer.parseInt(piecesGroup.getSelection().getActionCommand());
         String board = boardGroup.getSelection().getActionCommand();
+
         SwingUtilities.invokeLater(() -> {
-            YutBoardGUI boardFrame = new YutBoardGUI(board);
+            YutBoardGUI boardFrame = new YutBoardGUI(board, numPlayers, numPieces);
             boardFrame.setVisible(true);
         });
     }
@@ -68,4 +71,6 @@ public class GameSetUp extends JFrame {
             setupFrame.setVisible(true);
         });
     }
+
+
 }
