@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 사각형 윷판 – 분기점(5·10·15)에서 **자동으로 안쪽(대각선) 경로** 선택.
+ * 사각형 윷판 – 분기점(5·10·25)에서 **자동으로 안쪽(대각선) 경로** 선택.
  */
 public final class SquareBoard implements Board {
 
@@ -49,27 +49,36 @@ public final class SquareBoard implements Board {
     public int next(int current, int steps) {
         if (steps == 0 || current == FINISH) return current;
 
-        // 빽도(뒤로 1칸) – 외곽 링 기준 단순 구현
+        // ── 빽도(뒤로 1칸) ───────────────────────────────────────────────
         if (steps < 0) {
             int prev = current == 0 ? START_POS : current - 1;
             return prev < START_POS ? START_POS : prev;
         }
 
+        // 출발 지점이 분기점인지 미리 판단
+        boolean startIsBranch = NEXT.getOrDefault(current, new int[]{FINISH}).length == 2;
+
         int pos = current;
         for (int i = 0; i < steps; i++) {
-            // 다음 pos 존재시 가져오고, 없으면 Finish 반환
             int[] nexts = NEXT.getOrDefault(pos, new int[]{FINISH});
+            boolean atBranch   = nexts.length == 2;
+            boolean firstStep  = (i == 0);
+            boolean lastStep   = (i == steps - 1);
 
-            // 마지막 스텝이면서 현재 위치가 분기점이면 → 안쪽 경로
-            boolean isLastStep = (i == steps - 1);
-            if (nexts.length == 2 && isLastStep) {
-                pos = nexts[1]; // 안쪽으로 분기
+            /*
+             * 1) 출발 칸 자체가 분기점이면 첫 스텝에서 안쪽(nexts[1])으로 진입
+             * 2) 그 외에는, 오직 마지막 스텝일 때만 분기점이면 안쪽(nexts[1])으로 진입
+             * 3) 나머지 경우엔 항상 외곽(nexts[0])으로 이동
+             */
+            if (atBranch && ((firstStep && startIsBranch) || (lastStep && !firstStep))) {
+                pos = nexts[1];   // 안쪽 경로
             } else {
-                pos = nexts[0]; // 외곽으로 계속 이동
+                pos = nexts[0];   // 외곽 경로
             }
         }
         return pos;
     }
+
 
     @Override public BoardShape shape() { return BoardShape.SQUARE; }
 }
