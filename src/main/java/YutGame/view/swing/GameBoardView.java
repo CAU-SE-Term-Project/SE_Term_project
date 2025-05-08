@@ -33,16 +33,23 @@ public class GameBoardView extends JFrame {
         this.numPlayers = numPlayers;
         this.numPieces  = numPieces;
 
+        // 모니터 비율에 맞게 화면 조정
         setTitle("윷놀이 판 ("+boardType+")");
-        setSize(700, 900);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int)(screenSize.width * 0.85);
+        int height = (int)(screenSize.height * 0.8);
+        setSize(width, height);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
 
+        JPanel controlPanel = createYutControlPanel();
+        controlPanel.setPreferredSize(new Dimension(200, getHeight()));
+
         add(createPlayerInfoPanel(), BorderLayout.NORTH);
         this.boardPanel = new BoardPanel(boardType, numPieces);
         add(boardPanel, BorderLayout.CENTER);
-        add(createYutControlPanel(),    BorderLayout.SOUTH);
+        add(controlPanel,    BorderLayout.EAST);
     }
 
     /* ── UI 구성 ─────────────────────────────── */
@@ -67,6 +74,7 @@ public class GameBoardView extends JFrame {
 
     private JPanel createYutControlPanel() {
         JPanel base = new JPanel(new BorderLayout());
+        base.setLayout(new BoxLayout(base, BoxLayout.Y_AXIS));
 
         JPanel yut = new JPanel();
         yut.setBorder(BorderFactory.createTitledBorder("윷 던지기"));

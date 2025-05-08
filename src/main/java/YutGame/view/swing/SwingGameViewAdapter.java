@@ -106,7 +106,8 @@ public final class SwingGameViewAdapter implements GameView, GameBoardView.UiCal
                 break;
 
             case GAME_ENDED:
-                showWinner((int) p.get("winner"));
+                int winner = (int) p.get("winner");
+                new GameCompleteView(winner).setVisible(true);
                 break;
 
             case ERROR:

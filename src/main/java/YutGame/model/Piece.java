@@ -13,6 +13,6 @@ public final class Piece {
     public int position(){return pos;}
     public void setPosition(int p){pos=p;}
 
-    public boolean isHome(Board board){return pos>board.getEndPosition();}
+    public boolean isHome(Board board){return pos>=board.getEndPosition();}
 }
 

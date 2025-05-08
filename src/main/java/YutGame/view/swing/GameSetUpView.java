@@ -49,9 +49,18 @@ public class GameSetUpView extends JFrame {
     }
     private JPanel boardPanel(){
         JPanel p=new JPanel(); p.setBorder(BorderFactory.createTitledBorder("윷판 형태"));
+
         JRadioButton rb=new JRadioButton("사각형",true);
+        JRadioButton pb=new JRadioButton("오각형",false);
+        JRadioButton hb=new JRadioButton("육각형",false);
+
         rb.setActionCommand("사각형");
+        pb.setActionCommand("오각형");
+        hb.setActionCommand("육각형");
+
         boardGroup.add(rb); p.add(rb);
+        boardGroup.add(pb); p.add(pb);
+        boardGroup.add(hb); p.add(hb);
         return p;
     }
 

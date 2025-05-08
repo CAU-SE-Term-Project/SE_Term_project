@@ -25,6 +25,7 @@ public final class Game {
             Player pl=new Player(p);
             for(int i=0;i<nPieces;i++){
                 Piece pc=new Piece(seq++,p);
+                pc.setPosition(Board.START_POS + 1);
                 pl.pieces().add(pc);
                 pieces.put(pc.id(),pc);
             }
@@ -125,7 +126,7 @@ public final class Game {
                     // 🔽 그룹 안에서도 '상대편 말'만 잡는다
                     for (Piece victim : new ArrayList<>(victimGroup)) {
                         if (victim.ownerId() != piece.ownerId()) {
-                            victim.setPosition(Board.START_POS);
+                            victim.setPosition(Board.START_POS + 1);
                             captured.add(victim.id());
                             victimGroup.remove(victim);       // 그룹에서 제거
                         }
@@ -135,7 +136,7 @@ public final class Game {
                     }
 
                 } else {
-                    other.setPosition(Board.START_POS);
+                    other.setPosition(Board.START_POS + 1);
                     captured.add(other.id());
                 }
             }
