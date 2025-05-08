@@ -15,3 +15,4 @@ public final class Piece {
 
     public boolean isHome(Board board){return pos>board.getEndPosition();}
 }
+

@@ -9,7 +9,7 @@ public final class GameControllerImpl implements GameController {
 
     private final Game               game     = new Game();
     private final List<GameView>     views    = new ArrayList<>();
-
+    private final List<Piece> groups = new ArrayList<>();
     /* ── 턴별 상태 ───────────────────────── */
     private final List<YutResult> pendingResults = new ArrayList<>();
     private       YutResult       curResult      = null;   // ← 말에 쓸 현재 결과
@@ -60,36 +60,45 @@ public final class GameControllerImpl implements GameController {
 
     /* ---------- 말 선택 ---------- */
 
-    @Override public void selectPiece(int pieceId){
-        try{
-            /* 1) 선택된 결과를 실제 roll 로 반영 */
-            if(curResult == null)
+    @Override
+    public void selectPiece(int pieceId) {
+        try {
+            /* 1) roll 결과 소모 */
+            if (curResult == null)
                 throw new IllegalStateException("이동할 결과가 선택되지 않았습니다");
 
-            game.roll(curResult);       // lastRoll 업데이트 (중복 roll 아님)
+            game.roll(curResult);
             pendingResults.remove(curResult);
-            curResult = null;           // 소비 완료
+            curResult = null;
 
             /* 2) 이동 */
             MoveOutcome out = game.move(pieceId);
-            publish(GameEventType.PIECE_MOVED, Map.of(
-                    "pieceId", pieceId,
-                    "newPos",  out.newPosition(),
-                    "captured",out.capturedPieceIds()));
+
+            /* 🔸 바뀐 부분 ─ 그룹 전체를 publish */
+            for (Integer id : out.movedPieceIds()) {      // ← MoveOutcome에 들어있는 모든 말
+                publish(GameEventType.PIECE_MOVED, Map.of(
+                        "pieceId",  id,
+                        "newPos",   out.newPosition(),
+                        "captured", out.capturedPieceIds()
+                ));
+            }
 
             /* 3) 다음 단계 결정 */
-            if(game.finished()){
+            if (game.finished()) {
                 publish(GameEventType.GAME_ENDED, Map.of("winner", game.winnerId()));
-            } else if(!pendingResults.isEmpty()){          // 남은 결과 → 계속 선택
+            } else if (!pendingResults.isEmpty()) {
                 publish(GameEventType.RESULT_PICK_PHASE, Map.of());
-            } else if(out.extraTurn()){                    // 윷·모 효과 → 다시 던지기
+            } else if (out.extraTurn()) {
                 publish(GameEventType.ROLLING_PHASE, Map.of());
-            } else {                                       // 턴 종료
+            } else {
                 endTurn();
             }
 
-        }catch(Exception e){ publishErr(e); }
+        } catch (Exception e) {
+            publishErr(e);
+        }
     }
+
 
     @Override public void endTurn(){
         pendingResults.clear();    // 턴 넘어가면 초기화
