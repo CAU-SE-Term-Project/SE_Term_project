@@ -17,7 +17,7 @@ public final class Game {
     /* 초기화 */
     public void init(int nPlayers,int nPieces){
         if(nPlayers<2||nPlayers>4||nPieces<2||nPieces>5)
-            throw new IllegalArgumentException("플레이어 2‑4, 말 2‑5 허용");
+            throw new IllegalArgumentException("플레이어 2‐4, 말 2‐5 허용");
         players.clear();pieces.clear();turnOrder.clear();
         int seq=1;
         for(int p=1;p<=nPlayers;p++){
@@ -53,38 +53,60 @@ public final class Game {
                         board.next(pc.position(),lastRoll.steps())<=board.getEndPosition());
     }
 
-    /* 이동 */
-    public MoveOutcome move(int pieceId){
-        if(lastRoll==null) throw new IllegalStateException("먼저 윷을 던지세요");
-        Piece piece=pieces.get(pieceId);
-        if(piece==null) throw new IllegalArgumentException("잘못된 ID");
-        if(piece.ownerId()!=currentPlayerId()) throw new IllegalStateException("남의 말");
+    /** 이동 */
+    public MoveOutcome move(int pieceId) {
+        if (lastRoll == null) throw new IllegalStateException("먼저 윷을 던지세요");
+        Piece piece = pieces.get(pieceId);
+        if (piece == null) throw new IllegalArgumentException("잘못된 ID");
+        if (piece.ownerId() != currentPlayerId()) throw new IllegalStateException("남의 말");
 
-        // 같은 칸 묶음
-        List<Piece> group=new ArrayList<>();
-        for(Piece pc:players.get(piece.ownerId()).pieces())
-            if(pc.position()==piece.position()) group.add(pc);
-
-        int dest=board.next(piece.position(),lastRoll.steps());
-
-        // 잡기
-        List<Integer> captured=new ArrayList<>();
-        for(Piece other:pieces.values()){
-            if(other.ownerId()!=piece.ownerId()&&other.position()==dest){
-                other.setPosition(Board.START_POS);captured.add(other.id());
+        // 1) 같은 칸에 있는 말들 그룹핑 (업기)
+        List<Piece> group = new ArrayList<>();
+        int current = piece.position();
+        if (current == Board.START_POS) {
+            group.add(piece);
+            current = 0;
+        } else {
+            for (Piece pc : players.get(piece.ownerId()).pieces()) {
+                if (pc.position() == current) {
+                    group.add(pc);
+                }
             }
         }
 
-        group.forEach(pc->pc.setPosition(dest));
-        boolean extra=lastRoll.extraTurn()||!captured.isEmpty();
-        lastRoll=null;
-        return new MoveOutcome(dest,captured,extra);
+        // 2) 이동 목적지 계산
+        int dest = board.next(current, lastRoll.steps());
+
+        // 3) 잡기 처리 → 잡힌 말들은 대기 위치(-1)로 리셋
+        List<Integer> captured = new ArrayList<>();
+        for (Piece other : pieces.values()) {
+            if (other.ownerId() != piece.ownerId() && other.position() == dest) {
+                other.setPosition(Board.START_POS);   // ← 대기 위치로 돌려보냄
+                captured.add(other.id());
+            }
+        }
+
+        // 4) 그룹 내 말들 한꺼번에 이동
+        List<Integer> movedIds = new ArrayList<>();
+        for (Piece pc : group) {
+            pc.setPosition(dest);
+            movedIds.add(pc.id());
+        }
+
+        // 5) 추가 턴 여부
+        boolean extra = lastRoll.extraTurn() || !captured.isEmpty();
+        lastRoll = null;
+
+        // 결과에 movedIds, captured, extraTurn을 넘겨줌
+        return new MoveOutcome(dest, movedIds, captured, extra);
     }
+
+
 
     /* 턴 */
     public void nextTurn(){curIdx=(curIdx+1)%turnOrder.size();}
 
-    /* 게터 – 뷰 편의를 위해 read‑only 제공 */
+    /* 게터 – 뷰 편의를 위해 read​‑only 제공 */
     public Map<Integer,Player> players(){return Collections.unmodifiableMap(players);}
     public Board board(){return board;}
 }

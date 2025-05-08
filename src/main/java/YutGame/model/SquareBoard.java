@@ -16,69 +16,77 @@ public final class SquareBoard implements Board {
         // 출발
         NEXT.put(START_POS, new int[]{0});
 
-        // 외곽
-        NEXT.put(0,new int[]{1});  NEXT.put(1,new int[]{2});  NEXT.put(2,new int[]{3});
-        NEXT.put(3,new int[]{4});  NEXT.put(4,new int[]{5});
-        NEXT.put(5,new int[]{6,21});   // 분기①
-        NEXT.put(6,new int[]{7});  NEXT.put(7,new int[]{8});  NEXT.put(8,new int[]{9});
-        NEXT.put(9,new int[]{10});
-        NEXT.put(10,new int[]{11,23}); // 분기②
-        NEXT.put(11,new int[]{12}); NEXT.put(12,new int[]{13});
-        NEXT.put(13,new int[]{14}); NEXT.put(14,new int[]{15});
-        NEXT.put(15,new int[]{16});
-        NEXT.put(16,new int[]{17}); NEXT.put(17,new int[]{18});
-        NEXT.put(18,new int[]{19}); NEXT.put(19,new int[]{20});
-        NEXT.put(20,new int[]{FINISH});
+        // 외곽 (반시계 방향 순서로 매핑)
+        NEXT.put(0, new int[]{1});   // 출발 위
+        NEXT.put(1, new int[]{2});
+        NEXT.put(2, new int[]{3});
+        NEXT.put(3, new int[]{4});
+        NEXT.put(4, new int[]{5});
+        NEXT.put(5, new int[]{6, 21});   // 분기점 1
+        NEXT.put(6, new int[]{7});
+        NEXT.put(7, new int[]{8});
+        NEXT.put(8, new int[]{9});
+        NEXT.put(9, new int[]{10});
+        NEXT.put(10, new int[]{11, 23}); // 분기점 2
+        NEXT.put(11, new int[]{12});
+        NEXT.put(12, new int[]{13});
+        NEXT.put(13, new int[]{14});
+        NEXT.put(14, new int[]{15});
+        NEXT.put(15, new int[]{16});
+        NEXT.put(16, new int[]{17});
+        NEXT.put(17, new int[]{18});
+        NEXT.put(18, new int[]{19});
+        NEXT.put(19, new int[]{20});
+        NEXT.put(20, new int[]{FINISH});
 
-        // 대각선
-        NEXT.put(21,new int[]{22}); NEXT.put(22,new int[]{25});
-        NEXT.put(23,new int[]{24});
-        NEXT.put(25,new int[]{26,28}); NEXT.put(26,new int[]{27});
-        NEXT.put(27,new int[]{15}); NEXT.put(28,new int[]{29});
+        // 대각선 경로 (5 -> 중앙 -> 15)
+        NEXT.put(21, new int[]{22});      // 5 → 21 → 22
+        NEXT.put(22, new int[]{25});      // → 25
 
-        // 중앙 합류
-        NEXT.put(29,new int[]{20});
+        // 대각선 경로 (10 -> 중앙 -> 15)
+        NEXT.put(23, new int[]{24});      // 10 → 23 → 24
+        NEXT.put(24, new int[]{25});
+        // 중앙 합류 분기
+        NEXT.put(25, new int[]{26, 28});  // 중앙 노드 25
+        NEXT.put(26, new int[]{27});
+        NEXT.put(27, new int[]{15});
+        NEXT.put(28, new int[]{29});
 
-        // FINISH self‑loop
-        NEXT.put(FINISH,new int[]{FINISH});
+        // 마지막 중앙 to 20
+        NEXT.put(29, new int[]{20});
+
+        // FINISH self-loop
+        NEXT.put(FINISH, new int[]{FINISH});
     }
 
-    @Override public int getEndPosition() { return FINISH; }
+    @Override
+    public int getEndPosition() {
+        return FINISH;
+    }
 
     @Override
     public int next(int current, int steps) {
         if (steps == 0 || current == FINISH) return current;
 
-        // ── 빽도(뒤로 1칸) ───────────────────────────────────────────────
-        if (steps < 0) {
-            int prev = current == 0 ? START_POS : current - 1;
-            return prev < START_POS ? START_POS : prev;
-        }
-
-        // 출발 지점이 분기점인지 미리 판단
-        boolean startIsBranch = NEXT.getOrDefault(current, new int[]{FINISH}).length == 2;
-
         int pos = current;
         for (int i = 0; i < steps; i++) {
             int[] nexts = NEXT.getOrDefault(pos, new int[]{FINISH});
-            boolean atBranch   = nexts.length == 2;
-            boolean firstStep  = (i == 0);
-            boolean lastStep   = (i == steps - 1);
 
-            /*
-             * 1) 출발 칸 자체가 분기점이면 첫 스텝에서 안쪽(nexts[1])으로 진입
-             * 2) 그 외에는, 오직 마지막 스텝일 때만 분기점이면 안쪽(nexts[1])으로 진입
-             * 3) 나머지 경우엔 항상 외곽(nexts[0])으로 이동
-             */
-            if (atBranch && ((firstStep && startIsBranch) || (lastStep && !firstStep))) {
-                pos = nexts[1];   // 안쪽 경로
+            if (nexts.length == 2) {
+                if (i == 0 && pos == current) {
+                    pos = nexts[1]; // 안쪽 경로 (출발 위치가 분기점일 때만)
+                } else {
+                    pos = nexts[0]; // 외곽 경로
+                }
             } else {
-                pos = nexts[0];   // 외곽 경로
+                pos = nexts[0];
             }
         }
         return pos;
     }
 
-
-    @Override public BoardShape shape() { return BoardShape.SQUARE; }
+    @Override
+    public BoardShape shape() {
+        return BoardShape.SQUARE;
+    }
 }
