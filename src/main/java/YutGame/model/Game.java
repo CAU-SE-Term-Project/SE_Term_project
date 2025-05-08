@@ -40,19 +40,22 @@ public final class Game {
         return null; // 해당 말이 속한 그룹이 없음
     }
     private void tryGroup(Piece movedPiece) {
-        // 이미 그룹에 속해있으면 아무것도 안 함
-        if (findGroupOf(movedPiece) != null) return;
+        if (findGroupOf(movedPiece) != null) return;   // 이미 그룹 존재
 
         int pos = movedPiece.position();
         List<Piece> group = new ArrayList<>();
 
         for (Piece p : pieces.values()) {
-            if (p != movedPiece && p.position() == pos && findGroupOf(p) == null) {
+            // 🔽 같은 위치 && 같은 주인 && 아직 그룹이 없음
+            if (p != movedPiece &&
+                    p.position() == pos &&
+                    p.ownerId() == movedPiece.ownerId() &&   // ← 추가
+                    findGroupOf(p) == null) {
+
                 group.add(p);
             }
         }
 
-        // 본인도 추가
         if (!group.isEmpty()) {
             group.add(movedPiece);
             groups.add(group);
@@ -111,24 +114,33 @@ public final class Game {
         }
 
         // 2) 잡기 처리 (상대편 말이 같은 위치에 있을 경우)
+        // 2) 잡기 처리
         List<Integer> captured = new ArrayList<>();
         for (Piece other : pieces.values()) {
             if (other.ownerId() != piece.ownerId() && other.position() == dest) {
+
                 List<Piece> victimGroup = findGroupOf(other);
                 if (victimGroup != null) {
-                    // 그룹 전체 잡힘
-                    for (Piece victim : victimGroup) {
-                        victim.setPosition(board.START_POS);
-                        captured.add(victim.id());
+
+                    // 🔽 그룹 안에서도 '상대편 말'만 잡는다
+                    for (Piece victim : new ArrayList<>(victimGroup)) {
+                        if (victim.ownerId() != piece.ownerId()) {
+                            victim.setPosition(Board.START_POS);
+                            captured.add(victim.id());
+                            victimGroup.remove(victim);       // 그룹에서 제거
+                        }
                     }
-                    groups.remove(victimGroup);
+                    if (victimGroup.isEmpty()) {
+                        groups.remove(victimGroup);           // 모두 잡혔으면 그룹 삭제
+                    }
+
                 } else {
-                    // 단독 말 잡힘
-                    other.setPosition(board.START_POS);
+                    other.setPosition(Board.START_POS);
                     captured.add(other.id());
                 }
             }
         }
+
 
         // 3) 골인 시 그룹 제거
         if (dest == (SquareBoard.FINISH) && group != null) {
