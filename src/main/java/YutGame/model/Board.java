@@ -8,7 +8,7 @@ package YutGame.model;
  */
 public interface Board {
 
-    int START_POS = -1;
+    int START_POS = 0;
 
     int getEndPosition();
 
@@ -16,7 +16,7 @@ public interface Board {
      * @param current 현재 위치(‑1 = 출발)
      * @param steps   이동 칸 수(빽도 = ‑1)
      */
-    int next(int current, int steps);
+    int next(int current, int steps, Piece piece);
 
     BoardShape shape();
 }

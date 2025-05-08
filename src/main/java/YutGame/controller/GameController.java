@@ -1,6 +1,7 @@
 package YutGame.controller;
 
 import YutGame.model.YutResult;
+import java.util.List;
 
 /**
  * View 계층이 호출하는 _공용 진입점_ (인터페이스).
@@ -23,6 +24,11 @@ public interface GameController {
     /** 테스트‧디버깅용: 지정 결과로 윷을 던진다 */
     void rollManualYut(YutResult manualResult);
 
+    List<YutResult> getPendingResults();
+
+    /* ── [추가] 다이얼로그에서 결과 하나를 골랐을 때 ── */
+    void chooseResult(YutResult chosen);
+
     /**
      * 플레이어가 말(pawn)을 선택했을 때 호출.
      * @param pieceId  ─ 선택된 말(고유 id)
@@ -33,6 +39,8 @@ public interface GameController {
     void endTurn();
 
     /* ---------- View 등록 ---------- */
+
+
 
     /** Observer 패턴 – 다중 View 지원 */
     void registerView(YutGame.view.GameView view);

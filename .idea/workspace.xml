@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e91547ac-1b2a-4742-a983-c6fe474ba147" name="변경" comment="SquareBoard 판 및 로직 오류 수정">
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameEventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameEventType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/MoveOutcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/MoveOutcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/SquareBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/SquareBoard.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;coldcow&quot;
+  }
+}</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="91f26331-8775-4ecc-ab1a-579a2b186459" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CAU-SE-Term-Project/SE_Term_project.git&quot;,
+    &quot;accountId&quot;: &quot;91f26331-8775-4ecc-ab1a-579a2b186459&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2wcS8ZkOPu8lsdoGYwgzH1UtmeO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.YutGameLauncher.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "back",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Kims/Documents/GitHub/SE_Term_project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.14137931",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일": [
+      "JAVA"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project - copy\src\main\java\YutGame\ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project\src\main\java" />
+      <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project\src\main\java\yutnori" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="YutGame.ui" />
+      <recent name="YutGame.app" />
+      <recent name="YutGame.view.swing" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="e91547ac-1b2a-4742-a983-c6fe474ba147" name="변경" comment="" />
+      <created>1746339211356</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746339211356</updated>
+      <workItem from="1746339213782" duration="309000" />
+      <workItem from="1746339538797" duration="3019000" />
+      <workItem from="1746345916158" duration="8146000" />
+      <workItem from="1746420433534" duration="2541000" />
+      <workItem from="1746423010172" duration="799000" />
+      <workItem from="1746423826711" duration="2406000" />
+      <workItem from="1746426261016" duration="7056000" />
+      <workItem from="1746510874853" duration="2817000" />
+      <workItem from="1746521835016" duration="19347000" />
+      <workItem from="1746552266549" duration="196000" />
+      <workItem from="1746621699721" duration="1507000" />
+      <workItem from="1746681149118" duration="22000" />
+      <workItem from="1746681304125" duration="4892000" />
+      <workItem from="1746686296254" duration="11035000" />
+    </task>
+    <task id="LOCAL-00001" summary="Controller 부분 추가">
+      <option name="closed" value="true" />
+      <created>1746425624204</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746425624204</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Model 부분 추가">
+      <option name="closed" value="true" />
+      <created>1746425639612</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746425639612</updated>
+    </task>
+    <task id="LOCAL-00003" summary="View GameView 추가">
+      <option name="closed" value="true" />
+      <created>1746425674221</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746425674221</updated>
+    </task>
+    <task id="LOCAL-00004" summary="SquareBoard 판 및 로직 업데이트">
+      <option name="closed" value="true" />
+      <created>1746442188991</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746442188991</updated>
+    </task>
+    <task id="LOCAL-00005" summary="SquareBoard 판 및 로직 오류 수정">
+      <option name="closed" value="true" />
+      <created>1746443444518</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746443444518</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="back" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Controller 부분 추가" />
+    <MESSAGE value="Model 부분 추가" />
+    <MESSAGE value="View GameView 추가" />
+    <MESSAGE value="SquareBoard 판 및 로직 업데이트" />
+    <MESSAGE value="SquareBoard 판 및 로직 오류 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="SquareBoard 판 및 로직 오류 수정" />
+    <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
+  </component>
+</project>
