@@ -91,17 +91,13 @@ public final class SquareBoard implements Board {
         int pos = current;
         for (int i = 0; i < steps; i++) {
             int[] nexts = NEXT.getOrDefault(pos, new int[]{FINISH});
-            //91-93
-//            boolean atBranch   = nexts.length == 2;
-//            boolean firstStep  = (i == 0);
-//            boolean lastStep   = (i == steps - 1);
 
             if (nexts.length == 2) {
-                if (i == 0 && pos == current) {
+                if (i == 0) {
                     pos = nexts[1]; // 안쪽 경로 (출발 위치가 분기점일 때만)
-                } else {
-                    pos = nexts[0]; // 외곽 경로
                 }
+                else if (piece.pathContains(24)) pos = nexts[1];
+                else pos = nexts[0]; // 외곽 경로
             } else {
                 pos = nexts[0];
             }

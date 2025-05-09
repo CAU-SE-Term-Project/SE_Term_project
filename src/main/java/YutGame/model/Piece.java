@@ -20,7 +20,7 @@ public final class Piece {
     public int popPath(){return path.pop();}
     public int peekPath(){return path.peek();}
     public boolean pathIsEmpty(){return path.isEmpty();}
-
+    public boolean pathContains(int p){return path.contains(p);}
     public boolean isHome(Board board){return pos>=board.getEndPosition();}
 }
 

@@ -110,11 +110,11 @@ public final class HexagonBoard implements Board {
             int[] nexts = NEXT.getOrDefault(pos, new int[]{FINISH});
 
             if (nexts.length == 2) {
-                if (i == 0 && pos == current) {
+                if (i == 0) {
                     pos = nexts[1]; // 안쪽 경로 (출발 위치가 분기점일 때만)
-                } else {
-                    pos = nexts[0]; // 외곽 경로
                 }
+                else if (piece.pathContains(36) || piece.pathContains(38)) pos = nexts[1];
+                else pos = nexts[0]; // 외곽 경로
             } else {
                 pos = nexts[0];
             }
