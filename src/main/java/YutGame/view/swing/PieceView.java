@@ -19,6 +19,7 @@ public class PieceView {
         this.image = icon.getImage();
     }
 
+
     public void setPosition(int posId) {
         this.positionId = posId;
     }
@@ -47,6 +48,10 @@ public class PieceView {
         public Manager(Map<Integer, Point> positionMap, int numPieces) {
             this.positionMap = positionMap;
             this.numPieces = numPieces;
+
+        }
+        public PieceView getPieceView(int id) {
+            return pieceViews.get(id);
         }
 
         public void addPiece(PieceView view) {

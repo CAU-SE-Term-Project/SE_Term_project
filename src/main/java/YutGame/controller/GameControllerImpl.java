@@ -116,6 +116,12 @@ public final class GameControllerImpl implements GameController {
         GameEvent evt = new GameEvent(t, m);
         views.forEach(v -> v.onGameEvent(evt));
     }
+
+    @Override
+    public int getCurrentPlayerId() {
+        return game.currentPlayerId();  // 이미 Game.java에 존재하는 메서드 사용
+    }
+
     private void publishErr(Exception ex){
         publish(GameEventType.ERROR, Map.of("msg", ex.getMessage()));
     }

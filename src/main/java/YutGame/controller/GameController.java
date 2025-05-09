@@ -40,7 +40,7 @@ public interface GameController {
 
     /* ---------- View 등록 ---------- */
 
-
+    int getCurrentPlayerId();
 
     /** Observer 패턴 – 다중 View 지원 */
     void registerView(YutGame.view.GameView view);

@@ -72,11 +72,9 @@ public final class SquareBoard implements Board {
         // 백도 구현
         if (steps == -1){
             if (piece.peekPath() == 1){ // 현재 위치가 1이면
-<<<<<<< Updated upstream
-                return 20;
-=======
+
                 return END;
->>>>>>> Stashed changes
+
             }
             else {
                 piece.popPath();
@@ -87,6 +85,10 @@ public final class SquareBoard implements Board {
         int pos = current;
         for (int i = 0; i < steps; i++) {
             int[] nexts = NEXT.getOrDefault(pos, new int[]{FINISH});
+            //91-93
+//            boolean atBranch   = nexts.length == 2;
+//            boolean firstStep  = (i == 0);
+//            boolean lastStep   = (i == steps - 1);
 
             if (nexts.length == 2) {
                 if (i == 0 && pos == current) {

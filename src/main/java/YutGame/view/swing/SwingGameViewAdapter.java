@@ -35,6 +35,19 @@ public final class SwingGameViewAdapter implements GameView, GameBoardView.UiCal
 
     @Override
     public void onPieceClicked(int id) {
+        int ownerId = board.getBoardPanel()
+                .getPieceManager()
+                .getPieceView(id)
+                .getOwnerId();
+
+        int currentPlayerId = ctl.getCurrentPlayerId();
+
+        // 디버깅용 나중에 지워도됨
+        if (ownerId != currentPlayerId) {
+            System.out.println("❌ 상대 플레이어의 말 클릭 - 무시됨");
+            return;
+        }
+
         ctl.selectPiece(id);
     }
 
@@ -106,7 +119,8 @@ public final class SwingGameViewAdapter implements GameView, GameBoardView.UiCal
                 break;
 
             case GAME_ENDED:
-                showWinner((int) p.get("winner"));
+                int winner = (int) p.get("winner");
+                new GameCompleteView(winner).setVisible(true);
                 break;
 
             case ERROR:

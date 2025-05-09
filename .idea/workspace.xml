@@ -4,50 +4,92 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e91547ac-1b2a-4742-a983-c6fe474ba147" name="변경" comment="SquareBoard 판 및 로직 오류 수정">
+    <list default="true" id="d3ec8afa-c5e6-4199-a4dc-4ad855d7bee1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/app/YutGameLauncher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/controller/GameController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/controller/GameControllerImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/controller/GameEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/controller/GameEventType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/img/horse_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/img/horse_green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/img/horse_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/img/horse_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/Board.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/BoardShape.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/Game.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/MoveOutcome.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/Piece.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/SquareBoard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/model/YutResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/ui/GamePlayController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/ui/GameSetUpController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/GameView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/BoardPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/GameBoardView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/GameBoardView$UiCallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/GameBoardView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/GameCompleteView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/GameCompleteView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/GameSetUpView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/PieceView$Manager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/PieceView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/SwingGameViewAdapter$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/SwingGameViewAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project2/YutGame/view/swing/YutGameSwingView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/app/YutGameLauncher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/controller/GameController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/controller/GameControllerImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/controller/GameEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/controller/GameEventType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/img/horse_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/img/horse_green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/img/horse_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/img/horse_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/Board.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/BoardShape.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/Game.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/MoveOutcome.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/Piece.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/SquareBoard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/model/YutResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/ui/GamePlayController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/ui/GameSetUpController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/GameView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/BoardPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/GameBoardView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/GameBoardView$UiCallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/GameBoardView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/GameCompleteView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/GameCompleteView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/GameSetUpView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/PieceView$Manager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/PieceView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/SwingGameViewAdapter$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/SwingGameViewAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SE_Term_project3/YutGame/view/swing/YutGameSwingView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameCompleteView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/25__5__4___3_17__________.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/25__5__4__오후_3_17,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/25__5__4__오후_3_17,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameEventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameEventType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Board.java" afterDir="false" />
-<<<<<<< Updated upstream
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/BoardShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/BoardShape.java" afterDir="false" />
->>>>>>> Stashed changes
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/MoveOutcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/MoveOutcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/SquareBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/SquareBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameBoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameBoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameSetUpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameSetUpView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/PieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/PieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/SwingGameViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/SwingGameViewAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="Enum" />
-        <option value="Record" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -58,226 +100,78 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;coldcow&quot;
+    &quot;assignee&quot;: &quot;dlgusxor12&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="91f26331-8775-4ecc-ab1a-579a2b186459" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/CAU-SE-Term-Project/SE_Term_project.git&quot;,
-    &quot;accountId&quot;: &quot;91f26331-8775-4ecc-ab1a-579a2b186459&quot;
+    &quot;url&quot;: &quot;https://github.com/CAU-SE-Term-Project/SE_Term_project&quot;,
+    &quot;accountId&quot;: &quot;de74df5d-c6e7-4078-ae16-8527999d78d7&quot;
   }
 }</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2wcS8ZkOPu8lsdoGYwgzH1UtmeO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2wqORq2Af9imOXmoFBfkk6nljoD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.YutGameLauncher.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "back",
+    "git-widget-placeholder": "Merging middle",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Kims/Documents/GitHub/SE_Term_project",
+    "last_opened_file_path": "D:/SE_Term_project4",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.14137931",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "project.propCompiler",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일": [
-      "JAVA"
-    ]
   }
 }]]></component>
-=======
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.YutGameLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;back&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kims/Documents/GitHub/SE_Term_project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.14137931&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일&quot;: [
-      &quot;JAVA&quot;
-    ]
-  }
-}</component>
->>>>>>> Stashed changes
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project - copy\src\main\java\YutGame\ui" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project\src\main\java" />
-      <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project\src\main\java\yutnori" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="YutGame.ui" />
-      <recent name="YutGame.app" />
-      <recent name="YutGame.view.swing" />
-    </key>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="main" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.117" />
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="e91547ac-1b2a-4742-a983-c6fe474ba147" name="변경" comment="" />
-      <created>1746339211356</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3ec8afa-c5e6-4199-a4dc-4ad855d7bee1" name="Changes" comment="" />
+      <created>1746765631218</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1746339211356</updated>
-      <workItem from="1746339213782" duration="309000" />
-      <workItem from="1746339538797" duration="3019000" />
-      <workItem from="1746345916158" duration="8146000" />
-      <workItem from="1746420433534" duration="2541000" />
-      <workItem from="1746423010172" duration="799000" />
-      <workItem from="1746423826711" duration="2406000" />
-      <workItem from="1746426261016" duration="7056000" />
-      <workItem from="1746510874853" duration="2817000" />
-      <workItem from="1746521835016" duration="19347000" />
-      <workItem from="1746552266549" duration="196000" />
-      <workItem from="1746621699721" duration="1507000" />
-      <workItem from="1746681149118" duration="22000" />
-      <workItem from="1746681304125" duration="4892000" />
-<<<<<<< Updated upstream
-      <workItem from="1746686296254" duration="11035000" />
-=======
-      <workItem from="1746686296254" duration="12054000" />
-      <workItem from="1746758063943" duration="3191000" />
->>>>>>> Stashed changes
+      <updated>1746765631218</updated>
+      <workItem from="1746765632459" duration="77000" />
+      <workItem from="1746765721539" duration="842000" />
+      <workItem from="1746766590393" duration="177000" />
+      <workItem from="1746766783365" duration="147000" />
     </task>
-    <task id="LOCAL-00001" summary="Controller 부분 추가">
-      <option name="closed" value="true" />
-      <created>1746425624204</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1746425624204</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Model 부분 추가">
-      <option name="closed" value="true" />
-      <created>1746425639612</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1746425639612</updated>
-    </task>
-    <task id="LOCAL-00003" summary="View GameView 추가">
-      <option name="closed" value="true" />
-      <created>1746425674221</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1746425674221</updated>
-    </task>
-    <task id="LOCAL-00004" summary="SquareBoard 판 및 로직 업데이트">
-      <option name="closed" value="true" />
-      <created>1746442188991</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1746442188991</updated>
-    </task>
-    <task id="LOCAL-00005" summary="SquareBoard 판 및 로직 오류 수정">
-      <option name="closed" value="true" />
-      <created>1746443444518</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1746443444518</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="back" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Controller 부분 추가" />
-    <MESSAGE value="Model 부분 추가" />
-    <MESSAGE value="View GameView 추가" />
-    <MESSAGE value="SquareBoard 판 및 로직 업데이트" />
-    <MESSAGE value="SquareBoard 판 및 로직 오류 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="SquareBoard 판 및 로직 오류 수정" />
-    <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
