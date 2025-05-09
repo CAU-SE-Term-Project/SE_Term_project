@@ -86,12 +86,16 @@ public final class HexagonBoard implements Board {
     public int next(int current, int steps, Piece piece) {
         if (steps == 0 || current == FINISH) return current;
 
-        // 백도 구현
+// 백도 구현
         if (steps == -1){
             if (piece.position() == END && piece.pathIsEmpty()) {
                 return FINISH;
             }
-            if (piece.peekPath() == 1){ // 현재 위치가 1이면
+            else if (piece.position() == START_POS) {
+//                System.out.println("hi");
+                return START_POS;
+            }
+            else if (piece.peekPath() == 1){ // 현재 위치가 1이면
                 piece.popPath();
                 return END;
             }

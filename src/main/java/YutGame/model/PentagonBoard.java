@@ -83,7 +83,11 @@ public final class PentagonBoard implements Board {
             if (piece.position() == END && piece.pathIsEmpty()) {
                 return FINISH;
             }
-            if (piece.peekPath() == 1){ // 현재 위치가 1이면
+            else if (piece.position() == START_POS) {
+//                System.out.println("hi");
+                return START_POS;
+            }
+            else if (piece.peekPath() == 1){ // 현재 위치가 1이면
                 piece.popPath();
                 return END;
             }

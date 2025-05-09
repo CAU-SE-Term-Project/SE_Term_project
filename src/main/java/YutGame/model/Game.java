@@ -40,26 +40,49 @@ public final class Game {
         return null; // 해당 말이 속한 그룹이 없음
     }
     private void tryGroup(Piece movedPiece) {
+        // 이미 그룹에 속해있는 말은 처리하지 않음
         if (findGroupOf(movedPiece) != null) return;   // 이미 그룹 존재
 
-        int pos = movedPiece.position();
-        List<Piece> group = new ArrayList<>();
+        int pos = movedPiece.position(); // 목표 위치
+        List<Piece> groupAtPosition = null;
 
-        for (Piece p : pieces.values()) {
-            // 🔽 같은 위치 && 같은 주인 && 아직 그룹이 없음
-            if (p != movedPiece &&
-                    p.position() == pos &&
-                    p.ownerId() == movedPiece.ownerId() &&   // ← 추가
-                    findGroupOf(p) == null) {
-
-                group.add(p);
+        // 목표 위치에 있는 기존 그룹 찾기
+        for (List<Piece> group : groups) {
+            if (group.stream().anyMatch(p -> p.position() == pos)) {
+                groupAtPosition = group;
+                break;
             }
         }
 
-        if (!group.isEmpty()) {
-            group.add(movedPiece);
-            groups.add(group);
+        // 목표 위치에 그룹이 있으면 해당 그룹에 movedPiece 추가
+        if (groupAtPosition != null) {
+            groupAtPosition.add(movedPiece);
+        } else {
+            // 목표 위치에 그룹이 없으면 새 그룹을 만들어 추가
+            groupAtPosition = new ArrayList<>();
+            groupAtPosition.add(movedPiece);
+            groups.add(groupAtPosition); // 새 그룹을 groups에 추가
         }
+//
+//        // 그룹이 어떻게 변화했는지 출력
+//        System.out.println(groups);
+////
+//
+////        for (Piece p : pieces.values()) {
+////            // 🔽 같은 위치 && 같은 주인 && 아직 그룹이 없음
+////            if (p != movedPiece &&
+////                    p.position() == pos &&
+////                    p.ownerId() == movedPiece.ownerId() &&   // ← 추가
+////                    findGroupOf(p) == null) {
+////
+////                group.add(p);
+////            }
+////        }
+////
+////        if (!group.isEmpty()) {
+////            group.add(movedPiece);
+////            groups.add(group);
+////        }
     }
 
 
@@ -113,7 +136,8 @@ public final class Game {
         // 2) 잡기 처리
         List<Integer> captured = new ArrayList<>();
         for (Piece other : pieces.values()) {
-            if (other.ownerId() != piece.ownerId() && other.position() == dest) {
+            // 상대팀 piece고, 상대 picece의 위치가 우리팀 말의 위치와 같다면
+            if (other.ownerId() != piece.ownerId() && other.position() == dest && dest != Board.START_POS) {
 
                 List<Piece> victimGroup = findGroupOf(other);
                 if (victimGroup != null) {
@@ -121,7 +145,7 @@ public final class Game {
                     // 🔽 그룹 안에서도 '상대편 말'만 잡는다
                     for (Piece victim : new ArrayList<>(victimGroup)) {
                         if (victim.ownerId() != piece.ownerId()) {
-                            victim.setPosition(Board.START_POS + 1);
+                            victim.setPosition(Board.START_POS);
                             captured.add(victim.id());
                             victimGroup.remove(victim);       // 그룹에서 제거
                         }
@@ -131,7 +155,7 @@ public final class Game {
                     }
 
                 } else {
-                    other.setPosition(Board.START_POS + 1);
+                    other.setPosition(Board.START_POS);
                     captured.add(other.id());
                 }
             }
