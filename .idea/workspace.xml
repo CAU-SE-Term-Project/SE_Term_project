@@ -9,6 +9,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameEventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/controller/GameEventType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Board.java" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/BoardShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/BoardShape.java" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/MoveOutcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/MoveOutcome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/model/Piece.java" afterDir="false" />
@@ -80,6 +84,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.YutGameLauncher.executor": "Run",
@@ -104,6 +109,32 @@
     ]
   }
 }]]></component>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.YutGameLauncher.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;back&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kims/Documents/GitHub/SE_Term_project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.14137931&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일&quot;: [
+      &quot;JAVA&quot;
+    ]
+  }
+}</component>
+>>>>>>> Stashed changes
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Kims\IdeaProjects\SE_Term_project - copy\src\main\java\YutGame\ui" />
@@ -147,7 +178,12 @@
       <workItem from="1746621699721" duration="1507000" />
       <workItem from="1746681149118" duration="22000" />
       <workItem from="1746681304125" duration="4892000" />
+<<<<<<< Updated upstream
       <workItem from="1746686296254" duration="11035000" />
+=======
+      <workItem from="1746686296254" duration="12054000" />
+      <workItem from="1746758063943" duration="3191000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Controller 부분 추가">
       <option name="closed" value="true" />
