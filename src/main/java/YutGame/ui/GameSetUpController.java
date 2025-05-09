@@ -34,7 +34,7 @@ public final class GameSetUpController {
         controller.registerView(adapter);
 
         /* 4) 새 게임 초기화 */
-        controller.startNewGame(players, pieces);
+        controller.startNewGame(players, pieces, boardT);
 
         /* 5) 화면 전환 */
         boardView.setVisible(true);

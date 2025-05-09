@@ -11,7 +11,7 @@ public interface GameController {
     /* ---------- 게임 수명 주기 ---------- */
 
     /** 새 게임 시작 */
-    void startNewGame(int numPlayers, int numPieces);
+    void startNewGame(int numPlayers, int numPieces, String boardType);
 
     /** 현재 게임 강제 종료 및 초기화 */
     void abortGame();

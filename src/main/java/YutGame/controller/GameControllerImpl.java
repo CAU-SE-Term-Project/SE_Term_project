@@ -17,9 +17,9 @@ public final class GameControllerImpl implements GameController {
     /* ── GameController 구현 ─────────────── */
 
     @Override
-    public void startNewGame(int nPlayers,int nPieces){
+    public void startNewGame(int nPlayers,int nPieces, String boardType){
         try{
-            game.init(nPlayers,nPieces);
+            game.init(nPlayers,nPieces, boardType);
             publish(GameEventType.GAME_STARTED, Map.of(
                     "numPlayers",nPlayers,"numPieces",nPieces,
                     "currentPlayer",game.currentPlayerId()));
@@ -27,7 +27,7 @@ public final class GameControllerImpl implements GameController {
     }
 
     @Override public void abortGame(){
-        game.init(0,0);
+        game.init(0,0, "사각형");
         pendingResults.clear();
         publish(GameEventType.GAME_ENDED, Map.of());
     }

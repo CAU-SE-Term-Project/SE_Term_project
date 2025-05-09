@@ -98,7 +98,7 @@ public class BoardPanel extends JPanel {
             drawCircle(g, (int)pCorner.getX(), (int)pCorner.getY(), CROSS_SIZE, posId);
             posIdToPixel.put(posId++, new Point((int)pCorner.getX(), (int)pCorner.getY()));
 
-            // 중간 지점 4개
+            // 외곽 루트 분기점 사이 노드 개수 4개씩
             for (int j = 1; j <= 4; j++) {
                 double t = j / 5.0;
                 int x = (int)(pCorner.getX() + t*(pNext.getX()-pCorner.getX()));
@@ -108,23 +108,66 @@ public class BoardPanel extends JPanel {
             }
         }
         // 0~19 매핑 완료
+        if (sides == 4) {
+            // 4. 분기 1 (5->21->22->25)
+            drawInterpolated(g, posIdToPixel.get(5), center, new int[]{21, 22});
+            // 5. 분기 2 (10->23->24->25)
+            drawInterpolated(g, posIdToPixel.get(10), center, new int[]{23, 24});
 
-        // 4. 분기 1 (5->21->22->25)
-        drawInterpolated(g, posIdToPixel.get(5), center, new int[]{21,22});
-        // 5. 분기 2 (10->23->24->25)
-        drawInterpolated(g, posIdToPixel.get(10), center, new int[]{23,24});
+            // 6. 중앙(25)
+            drawCircle(g, center.x, center.y, CROSS_SIZE, 25);
+            posIdToPixel.put(25, new Point(center));
 
-        // 6. 중앙(25)
-        drawCircle(g, center.x, center.y, CROSS_SIZE, 25);
-        posIdToPixel.put(25, new Point(center));
+            // 7. 중앙 분기 후
+            // branch1: 25->26->27->15
+            drawInterpolated(g, center, posIdToPixel.get(15), new int[]{26, 27});
+            // branch2: 25->28->29->0
+            drawInterpolated(g, center, posIdToPixel.get(0), new int[]{28, 29});
+            // id20은 0과 동일 좌표
+            posIdToPixel.put(20, posIdToPixel.get(0));
+        }
+        else if (sides == 5) {
+            // 4. 분기 1 (5->21->22->25)
+            drawInterpolated(g, posIdToPixel.get(5), center, new int[]{26, 27});
+            // 5. 분기 2 (10->23->24->25)
+            drawInterpolated(g, posIdToPixel.get(10), center, new int[]{28, 29});
 
-        // 7. 중앙 분기 후
-        // branch1: 25->26->27->15
-        drawInterpolated(g, center, posIdToPixel.get(15), new int[]{26,27});
-        // branch2: 25->28->29->0
-        drawInterpolated(g, center, posIdToPixel.get(0), new int[]{28,29});
-        // id20은 0과 동일 좌표
-        posIdToPixel.put(20, posIdToPixel.get(0));
+            drawInterpolated(g, posIdToPixel.get(15), center, new int[]{30, 31});
+
+            // 6. 중앙(25)
+            drawCircle(g, center.x, center.y, CROSS_SIZE, 32);
+            posIdToPixel.put(32, new Point(center));
+
+            // 7. 중앙 분기 후
+            // branch1: 25->26->27->15
+            drawInterpolated(g, center, posIdToPixel.get(20), new int[]{33, 34});
+            // branch2: 25->28->29->0
+            drawInterpolated(g, center, posIdToPixel.get(0), new int[]{35, 36});
+            // id20은 0과 동일 좌표
+            posIdToPixel.put(25, posIdToPixel.get(0));
+        }
+        else if (sides == 6) {
+            // 4. 분기 1 (5->21->22->25)
+            drawInterpolated(g, posIdToPixel.get(5), center, new int[]{31, 32});
+            // 5. 분기 2 (10->23->24->25)
+            drawInterpolated(g, posIdToPixel.get(10), center, new int[]{33, 34});
+
+            drawInterpolated(g, posIdToPixel.get(15), center, new int[]{35, 36});
+
+            drawInterpolated(g, posIdToPixel.get(20), center, new int[]{37, 38});
+
+            // 6. 중앙(25)
+            drawCircle(g, center.x, center.y, CROSS_SIZE, 39);
+            posIdToPixel.put(39, new Point(center));
+
+            // 7. 중앙 분기 후
+            // branch1: 25->26->27->15
+            drawInterpolated(g, center, posIdToPixel.get(25), new int[]{40, 41});
+            // branch2: 25->28->29->0
+            drawInterpolated(g, center, posIdToPixel.get(0), new int[]{42, 43});
+            // id20은 0과 동일 좌표
+            posIdToPixel.put(30, posIdToPixel.get(0));
+        }
     }
 
     private void drawInterpolated(Graphics2D g, Point from, Point to, int[] ids) {

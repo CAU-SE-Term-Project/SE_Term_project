@@ -6,7 +6,10 @@ import java.util.*;
 public final class Game {
 
     /* 상태 */
-    private final Board board = new SquareBoard();
+//    private final Board board = new SquareBoard();
+
+    private Board board;
+
     private final Map<Integer,Player> players = new HashMap<>();
     private final Map<Integer,Piece> pieces = new HashMap<>();
     private final List<List<Piece>> groups = new ArrayList<>();
@@ -16,21 +19,38 @@ public final class Game {
     private YutResult lastRoll;
 
     /* 초기화 */
-    public void init(int nPlayers,int nPieces){
-        if(nPlayers<2||nPlayers>4||nPieces<2||nPieces>5)
+    public void init(int nPlayers,int nPieces, String boardType) {
+        if (nPlayers < 2 || nPlayers > 4 || nPieces < 2 || nPieces > 5)
             throw new IllegalArgumentException("플레이어 2‐4, 말 2‐5 허용");
-        players.clear();pieces.clear();turnOrder.clear();
-        int seq=1;
-        for(int p=1;p<=nPlayers;p++){
-            Player pl=new Player(p);
-            for(int i=0;i<nPieces;i++){
-                Piece pc=new Piece(seq++,p);
+        players.clear();
+        pieces.clear();
+        turnOrder.clear();
+        int seq = 1;
+        for (int p = 1; p <= nPlayers; p++) {
+            Player pl = new Player(p);
+            for (int i = 0; i < nPieces; i++) {
+                Piece pc = new Piece(seq++, p);
                 pl.pieces().add(pc);
-                pieces.put(pc.id(),pc);
+                pieces.put(pc.id(), pc);
             }
-            players.put(p,pl);turnOrder.add(pl);
+            players.put(p, pl);
+            turnOrder.add(pl);
         }
-        curIdx=0;lastRoll=null;
+        switch (boardType) {
+            case "사각형":
+                board = new SquareBoard();
+                break;
+            case "오각형":
+                board = new PentagonBoard();
+                break;
+            case "육각형":
+                board = new HexagonBoard();
+                break;
+            default:
+                board = new SquareBoard();  // 기본값으로 사각형
+                curIdx = 0;
+                lastRoll = null;
+        }
     }
 
     private List<Piece> findGroupOf(Piece piece) {
