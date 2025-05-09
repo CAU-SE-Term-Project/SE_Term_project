@@ -88,12 +88,16 @@ public final class HexagonBoard implements Board {
 
         // 백도 구현
         if (steps == -1){
+            if (piece.position() == END && piece.pathIsEmpty()) {
+                return FINISH;
+            }
             if (piece.peekPath() == 1){ // 현재 위치가 1이면
+                piece.popPath();
                 return END;
             }
             else {
                 piece.popPath();
-                return piece.popPath();
+                return piece.peekPath();
             }
         }
 
