@@ -5,26 +5,23 @@ import java.util.*;
 /** 비즈니스 로직 전담 */
 public final class Game {
 
-    /* 상태 */
-//    private final Board board = new SquareBoard();
-
+    /* ─── 상태 ─── */
     private Board board;
 
-    private final Map<Integer,Player> players = new HashMap<>();
-    private final Map<Integer,Piece> pieces = new HashMap<>();
-    private final List<List<Piece>> groups = new ArrayList<>();
-    private final List<Player> turnOrder = new ArrayList<>();
+    private final Map<Integer, Player> players = new HashMap<>();
+    private final Map<Integer, Piece>  pieces  = new HashMap<>();
+    private final List<List<Piece>>    groups  = new ArrayList<>();
+    private final List<Player>         turnOrder = new ArrayList<>();
 
-    private int curIdx;
+    private int       curIdx;
     private YutResult lastRoll;
 
-    /* 초기화 */
-    public void init(int nPlayers,int nPieces, String boardType) {
+    /* ─── 초기화 ─── */
+    public void init(int nPlayers, int nPieces, String boardType) {
         if (nPlayers < 2 || nPlayers > 4 || nPieces < 2 || nPieces > 5)
-            throw new IllegalArgumentException("플레이어 2‐4, 말 2‐5 허용");
-        players.clear();
-        pieces.clear();
-        turnOrder.clear();
+            throw new IllegalArgumentException("플레이어 2-4, 말 2-5 허용");
+
+        players.clear(); pieces.clear(); turnOrder.clear(); groups.clear();
         int seq = 1;
         for (int p = 1; p <= nPlayers; p++) {
             Player pl = new Player(p);
@@ -36,144 +33,116 @@ public final class Game {
             players.put(p, pl);
             turnOrder.add(pl);
         }
-        switch (boardType) {
-            case "사각형":
-                board = new SquareBoard();
-                break;
-            case "오각형":
-                board = new PentagonBoard();
-                break;
-            case "육각형":
-                board = new HexagonBoard();
-                break;
-            default:
-                board = new SquareBoard();  // 기본값으로 사각형
-                curIdx = 0;
-                lastRoll = null;
-        }
+
+        board = switch (boardType) {
+            case "오각형" -> new PentagonBoard();
+            case "육각형" -> new HexagonBoard();
+            default      -> new SquareBoard();
+        };
+        curIdx = 0;
+        lastRoll = null;
     }
+
+    /* ─── 그룹 헬퍼 ─── */
 
     private List<Piece> findGroupOf(Piece piece) {
-        for (List<Piece> group : groups) {
-            if (group.contains(piece)) return group;
-        }
-        return null; // 해당 말이 속한 그룹이 없음
-    }
-    private void tryGroup(Piece movedPiece) {
-        // 이미 그룹에 속해있는 말은 처리하지 않음
-        if (findGroupOf(movedPiece) != null) return;   // 이미 그룹 존재
-
-        int pos = movedPiece.position(); // 목표 위치
-        List<Piece> groupAtPosition = null;
-
-        // 목표 위치에 있는 기존 그룹 찾기
-        for (List<Piece> group : groups) {
-            if (group.stream().anyMatch(p -> p.position() == pos)) {
-                groupAtPosition = group;
-                break;
-            }
-        }
-
-        // 목표 위치에 그룹이 있으면 해당 그룹에 movedPiece 추가
-        if (groupAtPosition != null) {
-            groupAtPosition.add(movedPiece);
-        } else {
-            // 목표 위치에 그룹이 없으면 새 그룹을 만들어 추가
-            groupAtPosition = new ArrayList<>();
-            groupAtPosition.add(movedPiece);
-            groups.add(groupAtPosition); // 새 그룹을 groups에 추가
-        }
-//
-//        // 그룹이 어떻게 변화했는지 출력
-//        System.out.println(groups);
-////
-//
-////        for (Piece p : pieces.values()) {
-////            // 🔽 같은 위치 && 같은 주인 && 아직 그룹이 없음
-////            if (p != movedPiece &&
-////                    p.position() == pos &&
-////                    p.ownerId() == movedPiece.ownerId() &&   // ← 추가
-////                    findGroupOf(p) == null) {
-////
-////                group.add(p);
-////            }
-////        }
-////
-////        if (!group.isEmpty()) {
-////            group.add(movedPiece);
-////            groups.add(group);
-////        }
+        for (List<Piece> g : groups) if (g.contains(piece)) return g;
+        return null;
     }
 
+    /** 같은 칸 아군을 그룹화 (공유 스택 설정 포함) */
+    private void tryGroup(Piece moved) {
+        if (findGroupOf(moved) != null) return;      // 이미 그룹 소속
 
-    public int currentPlayerId(){return turnOrder.get(curIdx).id();}
+        int pos = moved.position();
+        List<Piece> target = null;
+        for (List<Piece> g : groups)
+            if (g.stream().anyMatch(p -> p.position() == pos)) { target = g; break; }
 
-    public boolean finished(){return turnOrder.stream().anyMatch(pl->pl.hasWon(board));}
+        if (target == null) { target = new ArrayList<>(); groups.add(target); }
+        target.add(moved);
 
-    public int winnerId(){
-        return turnOrder.stream().filter(pl->pl.hasWon(board))
-                .map(Player::id).findFirst().orElseThrow();
+        /* ★ 스택 공유 ★ */
+        Stack<Integer> shared = target.get(0).getPath();
+        for (Piece p : target) p.setSharedPath(shared);
     }
+
+    /** 병합 후 스택 공유 유지 */
+    private void mergeGroups(int owner, int pos) {
+        List<List<Piece>> toMerge = new ArrayList<>();
+        for (List<Piece> g : groups)
+            if (!g.isEmpty() &&
+                    g.get(0).ownerId() == owner &&
+                    g.stream().allMatch(p -> p.position() == pos))
+                toMerge.add(g);
+
+        if (toMerge.size() > 1) {
+            List<Piece> merged = new ArrayList<>();
+            toMerge.forEach(merged::addAll);
+            groups.removeAll(toMerge);
+            groups.add(merged);
+
+            /* ★ 스택 공유 ★ */
+            Stack<Integer> shared = merged.get(0).getPath();
+            for (Piece p : merged) p.setSharedPath(shared);
+        }
+    }
+
+    /* ─── 게임 상태 ─── */
+
+    public int  currentPlayerId() { return turnOrder.get(curIdx).id(); }
+    public boolean finished()    { return turnOrder.stream().anyMatch(pl -> pl.hasWon(board)); }
+    public int  winnerId()       { return turnOrder.stream().filter(pl -> pl.hasWon(board))
+            .map(Player::id).findFirst().orElseThrow(); }
 
     /* 윷 던지기 */
-    public YutResult rollRandom(){ return lastRoll = YutResult.random(); }
-    public YutResult roll(YutResult r){ return lastRoll = r; }
+    public YutResult rollRandom()  { return lastRoll = YutResult.random(); }
+    public YutResult roll(YutResult r) { return lastRoll = r; }
 
-    public boolean hasMovable(){
-        if(lastRoll==null)return false;
-        Player cur=turnOrder.get(curIdx);
-        return cur.pieces().stream()
-                .anyMatch(pc->!pc.isHome(board)&&
-                        board.next(pc.position(),lastRoll.steps(), pc)<=board.getEndPosition());
+    public boolean hasMovable() {
+        if (lastRoll == null) return false;
+        Player cur = turnOrder.get(curIdx);
+        return cur.pieces().stream().anyMatch(pc ->
+                !pc.isHome(board) &&
+                        board.next(pc.position(), lastRoll.steps(), pc) <= board.getEndPosition());
     }
 
-    /** 이동 */
+    /* ─── 이동 ─── */
+
     public MoveOutcome move(int pieceId) {
         if (lastRoll == null) throw new IllegalStateException("먼저 윷을 던지세요");
 
         Piece piece = pieces.get(pieceId);
         if (piece == null) throw new IllegalArgumentException("존재하지 않는 말입니다");
 
-        int steps = lastRoll.steps();
-        int dest = board.next(piece.position(), steps, piece);
+        int dest = board.next(piece.position(), lastRoll.steps(), piece);
 
-        // 그룹 판단
+        /* 1) 이동 */
         List<Piece> group = findGroupOf(piece);
-        // 1) 이동
         List<Integer> movedIds = new ArrayList<>();
         if (group != null) {
-            for (Piece p : group) {
-                p.setPosition(dest);
-                movedIds.add(p.id());
-            }
+            for (Piece p : group) { p.setPosition(dest); movedIds.add(p.id()); }
         } else {
-            piece.setPosition(dest);
-            movedIds.add(piece.id());
-            tryGroup(piece); // 새 그룹 구성 시도
+            piece.setPosition(dest); movedIds.add(piece.id()); tryGroup(piece);
         }
 
-        // 2) 잡기 처리 (상대편 말이 같은 위치에 있을 경우)
-        // 2) 잡기 처리
+        /* 2) 병합 + 스택공유 */
+        mergeGroups(piece.ownerId(), dest);
+
+        /* 3) 잡기 */
         List<Integer> captured = new ArrayList<>();
         for (Piece other : pieces.values()) {
-            // 상대팀 piece고, 상대 picece의 위치가 우리팀 말의 위치와 같다면
             if (other.ownerId() != piece.ownerId() && other.position() == dest && dest != Board.START_POS) {
-
                 List<Piece> victimGroup = findGroupOf(other);
                 if (victimGroup != null) {
-
-                    // 🔽 그룹 안에서도 '상대편 말'만 잡는다
                     for (Piece victim : new ArrayList<>(victimGroup)) {
                         if (victim.ownerId() != piece.ownerId()) {
                             victim.setPosition(Board.START_POS);
                             captured.add(victim.id());
-                            victimGroup.remove(victim);       // 그룹에서 제거
+                            victimGroup.remove(victim);
                         }
                     }
-                    if (victimGroup.isEmpty()) {
-                        groups.remove(victimGroup);           // 모두 잡혔으면 그룹 삭제
-                    }
-
+                    if (victimGroup.isEmpty()) groups.remove(victimGroup);
                 } else {
                     other.setPosition(Board.START_POS);
                     captured.add(other.id());
@@ -181,26 +150,19 @@ public final class Game {
             }
         }
 
+        /* 4) 골인 시 그룹 제거 */
+        if (dest == SquareBoard.FINISH && group != null && group.isEmpty()) groups.remove(group);
 
-        // 3) 골인 시 그룹 제거
-        if (dest == (SquareBoard.FINISH) && group != null) {
-            groups.remove(group);
-        }
-
-        // 4) 턴 처리
+        /* 5) 턴 처리 */
         boolean extra = lastRoll.extraTurn() || !captured.isEmpty();
         lastRoll = null;
-
         return new MoveOutcome(dest, movedIds, captured, extra);
     }
 
+    /* ─── 턴 ─── */
+    public void nextTurn() { curIdx = (curIdx + 1) % turnOrder.size(); }
 
-
-
-    /* 턴 */
-    public void nextTurn(){curIdx=(curIdx+1)%turnOrder.size();}
-
-    /* 게터 – 뷰 편의를 위해 read​‑only 제공 */
-    public Map<Integer,Player> players(){return Collections.unmodifiableMap(players);}
-    public Board board(){return board;}
+    /* ─── 읽기 전용 ─── */
+    public Map<Integer, Player> players() { return Collections.unmodifiableMap(players); }
+    public Board board() { return board; }
 }

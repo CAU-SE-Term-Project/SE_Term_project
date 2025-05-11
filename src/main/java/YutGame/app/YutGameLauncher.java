@@ -20,3 +20,7 @@ public class YutGameLauncher {
 //      출력 후 버튼이 사라짐
 // BugCase 3 : ...
 // BugCase 4 : 윷판과 말판 싱크 안맞음
+
+
+// Final BugCase
+// 두 말을 모두 보드에 윷 굴리기를 통해 투입하고 나서  그룹핑을 시도하면 그룹핑이 되지 않는다.
