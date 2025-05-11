@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5246b70c-e684-4132-aebc-593a1e2b3606" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/app/YutGameFXLauncher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GameSetUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GameSetUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameSetUpViewFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameSetUpViewFX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/app/YutGameFXLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/app/YutGameLauncherFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameSetUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameSetUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameSetUpViewFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameSetUpViewFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameBoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameBoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +119,7 @@
       <workItem from="1746837824261" duration="4097000" />
       <workItem from="1746860528326" duration="4519000" />
       <workItem from="1746971209653" duration="1426000" />
-      <workItem from="1746974274416" duration="4991000" />
+      <workItem from="1746974274416" duration="5841000" />
     </task>
     <servers />
   </component>

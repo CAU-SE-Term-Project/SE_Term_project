@@ -1,5 +1,6 @@
 package YutGame.app;
 
+import YutGame.ui.GameSetUpControllerFX;
 import YutGame.view.javafx.GameSetUpViewFX;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -8,8 +9,7 @@ public class YutGameLauncherFX extends Application {
     @Override
     public void start(Stage primaryStage){
         GameSetUpViewFX view = new GameSetUpViewFX(primaryStage);
-        // GameSetUpFXController 구현 예정
-        // new GameSetUpController(view);
+        new GameSetUpControllerFX(view);
         view.show();
     }
 
