@@ -2,6 +2,7 @@ package YutGame.ui;
 
 import YutGame.controller.GameController;
 import YutGame.controller.GameControllerImpl;
+import YutGame.view.javafx.GameSetUpViewFX;
 import YutGame.view.swing.GameBoardView;
 import YutGame.view.swing.GameSetUpView;
 import YutGame.view.swing.SwingGameViewAdapter;

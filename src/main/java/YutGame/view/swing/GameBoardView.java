@@ -190,4 +190,5 @@ public class GameBoardView extends JFrame {
     public BoardPanel getBoardPanel() {
         return boardPanel;
     }
+
 }
