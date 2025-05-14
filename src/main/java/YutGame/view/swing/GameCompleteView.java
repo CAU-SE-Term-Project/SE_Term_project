@@ -46,8 +46,4 @@ public class GameCompleteView extends JFrame {
         });
         btnOver.addActionListener(e -> System.exit(0));
     }
-
-    public static void main(String[] args) {
-        new GameCompleteView(1).setVisible(true);
-    }
 }

@@ -1,6 +1,7 @@
 package YutGame.view.javafx;
 
 import YutGame.model.YutResult;
+import YutGame.view.swing.BoardPanel;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -22,6 +23,7 @@ public class GameBoardViewFX {
     }
 
     private UiCallback cb;
+    private BoardPanelFX boardPanelFX;
     private final int numPlayers, numPieces;
     private Button[] yutButtons;
     private Button randomButton;
@@ -37,7 +39,10 @@ public class GameBoardViewFX {
 
         BorderPane root = new BorderPane();
         root.setTop(createPlayerInfoPanel());
-        root.setCenter(createBoardPanelPlaceholder());  // 실제 판은 별도 구현 필요
+
+        this.boardPanelFX = new BoardPanelFX(boardType, numPieces);
+        root.setCenter(boardPanelFX);
+
         root.setRight(createYutControlPanel());
 
         Scene scene = new Scene(root, 1000, 700); // 크기 조정 가능
@@ -65,11 +70,6 @@ public class GameBoardViewFX {
             panel.getChildren().add(lbl);
         }
         return panel;
-    }
-
-    private Pane createBoardPanelPlaceholder() {
-        // 실제 BoardPanelFX 구현 필요
-        return new Pane(); // 임시
     }
 
     private VBox createYutControlPanel() {
@@ -183,6 +183,11 @@ public class GameBoardViewFX {
         };
     }
 
+    public void initPiecesUi(){
+        boardPanelFX.redraw();
+    }
+
+
     public Button[] getYutButtons() {
         return yutButtons;
     }
@@ -196,4 +201,8 @@ public class GameBoardViewFX {
     }
 
     public void show(){primaryStage.show();}
+
+    public BoardPanelFX getBoardPanel() {
+        return boardPanelFX;
+    }
 }

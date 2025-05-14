@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5246b70c-e684-4132-aebc-593a1e2b3606" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/app/YutGameLauncherFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/app/YutGameLauncherFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GameSetUpControllerFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GameSetUpControllerFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameBoardViewFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameBoardViewFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/GameCompleteView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/GameCompleteView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameSetUpControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameSetUpControllerFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameBoardViewFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameBoardViewFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameCompleteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameCompleteView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,32 +56,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Unnamed (1).executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Application.YutGameFXLauncher.executor": "Run",
-    "Application.YutGameLauncher.executor": "Run",
-    "Application.YutGameLauncherFX.executor": "Run",
-    "Application.example.executor": "Run",
-    "Application.fxlauncher.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "middle",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Program Files/JetBrains/javafx-sdk-24.0.1/lib",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.YutGameFXLauncher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.YutGameLauncher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.YutGameLauncherFX.executor&quot;: &quot;Run&quot;,
+    &quot;Application.example.executor&quot;: &quot;Run&quot;,
+    &quot;Application.fxlauncher.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;middle&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/JetBrains/javafx-sdk-24.0.1/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.YutGameLauncherFX">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="YutGame.app.YutGameLauncher" />
@@ -119,7 +126,15 @@
       <workItem from="1746837824261" duration="4097000" />
       <workItem from="1746860528326" duration="4519000" />
       <workItem from="1746971209653" duration="1426000" />
-      <workItem from="1746974274416" duration="5841000" />
+      <workItem from="1746974274416" duration="6125000" />
+      <workItem from="1746980734315" duration="38000" />
+      <workItem from="1747011506054" duration="54000" />
+      <workItem from="1747022603452" duration="5000" />
+      <workItem from="1747038763183" duration="119000" />
+      <workItem from="1747057711826" duration="992000" />
+      <workItem from="1747146090137" duration="3649000" />
+      <workItem from="1747150364508" duration="670000" />
+      <workItem from="1747187734898" duration="4926000" />
     </task>
     <servers />
   </component>
