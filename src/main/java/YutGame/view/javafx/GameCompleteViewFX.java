@@ -1,7 +1,6 @@
 package YutGame.view.javafx;
 
-import YutGame.ui.GameSetUpControllerFX;
-import YutGame.view.javafx.GameSetUpViewFX;
+import YutGame.ui.GameLauncherFX;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -51,7 +50,7 @@ public class GameCompleteViewFX {
             stage.close();
             Stage newStage = new Stage();
             GameSetUpViewFX newView = new GameSetUpViewFX(newStage);
-            new GameSetUpControllerFX(newView);
+            new GameLauncherFX(newView);
             newView.show();  // 새 게임 설정 화면 띄우기
         });
 

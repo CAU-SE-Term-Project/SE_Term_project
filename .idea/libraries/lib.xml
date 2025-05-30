@@ -2,6 +2,7 @@
   <library name="lib">
     <CLASSES>
       <root url="file://C:/Program Files/JetBrains/javafx-sdk-24.0.1/lib" />
+      <root url="jar://C:/Program Files/JetBrains/junit-platform-console-standalone-1.12.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

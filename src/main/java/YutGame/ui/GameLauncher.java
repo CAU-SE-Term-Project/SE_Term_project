@@ -2,19 +2,16 @@ package YutGame.ui;
 
 import YutGame.controller.GameController;
 import YutGame.controller.GameControllerImpl;
-import YutGame.view.javafx.GameSetUpViewFX;
 import YutGame.view.swing.GameBoardView;
 import YutGame.view.swing.GameSetUpView;
 import YutGame.view.swing.SwingGameViewAdapter;
 
-import javax.swing.*;
-
-public final class GameSetUpController {
+public final class GameLauncher {
 
     private final GameSetUpView setupView;
 
     /* ── 생성 & “시작하기” 버튼 훅 ── */
-    public GameSetUpController(GameSetUpView view) {
+    public GameLauncher(GameSetUpView view) {
         this.setupView = view;
         view.getStartButton().addActionListener(e -> launchGame());
     }

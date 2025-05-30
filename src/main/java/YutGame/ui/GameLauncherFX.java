@@ -5,14 +5,12 @@ import YutGame.controller.GameControllerImpl;
 import YutGame.view.javafx.GameBoardViewFX;
 import YutGame.view.javafx.GameSetUpViewFX;
 import YutGame.view.javafx.JavaFXGameViewAdapter;
-import YutGame.view.swing.GameBoardView;
-import YutGame.view.swing.SwingGameViewAdapter;
 import javafx.stage.Stage;
 
-public class GameSetUpControllerFX {
+public class GameLauncherFX {
     private final GameSetUpViewFX setUpViewFX;
 
-    public GameSetUpControllerFX(GameSetUpViewFX view) {
+    public GameLauncherFX(GameSetUpViewFX view) {
         this.setUpViewFX = view;
         view.getStartButton().setOnAction(actionEvent -> launchGame());
     }

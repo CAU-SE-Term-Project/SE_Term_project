@@ -1,5 +1,7 @@
 package YutGame.view.swing;
 
+import YutGame.app.YutGameLauncherApp;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,7 +44,7 @@ public class GameCompleteView extends JFrame {
 
         btnRestart.addActionListener(e -> {
             dispose();
-            YutGameSwingView.startGameSwingApp();
+            YutGameLauncherApp.startSwingApp();
         });
         btnOver.addActionListener(e -> System.exit(0));
     }
