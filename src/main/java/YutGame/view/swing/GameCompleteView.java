@@ -23,7 +23,7 @@ public class GameCompleteView extends JFrame {
         winLabel.setFont(new Font("맑은 고딕", Font.BOLD, 20));
         topPanel.add(winLabel);
 
-// 색상 번쩍이는 타이머 효과
+        // 색상 번쩍이는 타이머 효과
         Timer timer = new Timer(300, new ActionListener() {
             private boolean toggle = false;
             public void actionPerformed(ActionEvent e) {
@@ -47,5 +47,14 @@ public class GameCompleteView extends JFrame {
             YutGameLauncherApp.startSwingApp();
         });
         btnOver.addActionListener(e -> System.exit(0));
+    }
+
+    // 테스트용 버튼 접근자
+    public JButton getBtnRestart() {
+        return btnRestart;
+    }
+
+    public JButton getBtnOver() {
+        return btnOver;
     }
 }

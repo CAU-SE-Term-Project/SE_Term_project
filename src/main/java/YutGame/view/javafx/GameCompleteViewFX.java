@@ -27,7 +27,7 @@ public class GameCompleteViewFX {
         winLabel.setFont(new Font("맑은 고딕", 20));
         winLabel.setTextFill(Color.RED);
 
-        // 색상 번쩍이는 효과
+        // 색상 번쩍이는 효과(javafx에서는 Timeline 이용하여 애니메이션 표시)
         Timeline colorFlasher = new Timeline(new KeyFrame(Duration.millis(300), e -> {
             Color current = (Color) winLabel.getTextFill();
             winLabel.setTextFill(current.equals(Color.RED) ? Color.BLUE : Color.RED);
@@ -55,5 +55,14 @@ public class GameCompleteViewFX {
         });
 
         btnOver.setOnAction(e -> Platform.exit());
+    }
+
+
+    public Button getBtnRestart() {
+        return btnRestart;
+    }
+
+    public Button getBtnOver() {
+        return btnOver;
     }
 }

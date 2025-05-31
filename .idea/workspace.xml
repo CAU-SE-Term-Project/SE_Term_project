@@ -4,27 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5246b70c-e684-4132-aebc-593a1e2b3606" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SE_Term_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SE_Term_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+    <list default="true" id="5246b70c-e684-4132-aebc-593a1e2b3606" name="Changes" comment="launcher 수정, class들 rename">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/app/YutGameLauncher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/app/YutGameLauncherFX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GamePlayController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GameSetUpController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/ui/GameSetUpControllerFX.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameCompleteViewFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameCompleteViewFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameSetUpViewFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/javafx/GameSetUpViewFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/BoardPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/BoardPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/GameCompleteView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/GameCompleteView$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/GameCompleteView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/GameCompleteView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE_Term_project/YutGame/view/swing/YutGameSwingView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/app/YutGameLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/app/YutGameLauncherFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/app/YutGameLauncherApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/ui/GamePlayController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameSetUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameSetUpControllerFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/ui/GameLauncherFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameCompleteViewFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameCompleteViewFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameSetUpViewFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/GameSetUpViewFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/JavaFXGameViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/javafx/JavaFXGameViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/BoardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/BoardPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameCompleteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/GameCompleteView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/YutGame/view/swing/YutGameSwingView.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,6 +45,9 @@
     &quot;assignee&quot;: &quot;dlgusxor12&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="de74df5d-c6e7-4078-ae16-8527999d78d7" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/CAU-SE-Term-Project/SE_Term_project&quot;,
@@ -79,9 +74,40 @@
     "Application.YutGameLauncherFX.executor": "Run",
     "Application.example.executor": "Run",
     "Application.fxlauncher.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BoardPanelTest.testConstructor_initializesBoardAndPieces.executor": "Run",
+    "JUnit.BoardPanelTest.testConstructor_initializesCorrectly.executor": "Run",
+    "JUnit.BoardPanelTest.testFXConstructor_initializesCorrectly.executor": "Run",
+    "JUnit.BoardPanelTest.testPositionIdMappedCorrectly.executor": "Run",
+    "JUnit.BoardPanelTest.testSquareBoardPositionMapping.executor": "Run",
     "JUnit.BoardTest.startPos_isZero.executor": "Run",
+    "JUnit.GameBoardVIewTest.testFXInitComponents.executor": "Run",
+    "JUnit.GameBoardVIewTest.testFrameOpen.executor": "Run",
+    "JUnit.GameBoardVIewTest.testInitComponents.executor": "Run",
+    "JUnit.GameBoardVIewTest.testStageOpen.executor": "Run",
+    "JUnit.GameBoardViewTest.testShowResultDialog_noResultsDialogDisplaysCorrectly.executor": "Run",
+    "JUnit.GameCompleteViewTest.testButtonsAreCreated.executor": "Run",
+    "JUnit.GameCompleteViewTest.testButtonsAreCreatedAndLabeledCorrectly.executor": "Run",
     "JUnit.GameControllerImplTest.endTurn_switchesCurrentPlayer.executor": "Run",
     "JUnit.GameControllerImplTest.selectPiece_withoutChoose_doesNothing.executor": "Run",
+    "JUnit.GameEventTest.createEvent_withPayload_storesTypeAndData.executor": "Run",
+    "JUnit.GameSetUpViewTest.testComponentInitialization.executor": "Run",
+    "JUnit.GameSetUpViewTest.testDefaultSelections.executor": "Run",
+    "JUnit.GameSetUpViewTest.testFXDefaultSelections.executor": "Run",
+    "JUnit.GameSetUpViewTest.testFXStartButtonInitialization.executor": "Run",
+    "JUnit.GameSetUpViewTest.testStartButtonActionListener.executor": "Run",
+    "JUnit.GameSetUpViewTest.testStartButtonInitialization.executor": "Run",
+    "JUnit.GameSetUpViewTest.testSwingDefaultSelections.executor": "Run",
+    "JUnit.GameSetUpViewTest.testSwingStartButtonActionListener.executor": "Run",
+    "JUnit.PieceViewTest.testFXPieceViewInitialization.executor": "Run",
+    "JUnit.PieceViewTest.testFXSetAndGetPosition.executor": "Run",
+    "JUnit.PieceViewTest.testPieceViewInitialization.executor": "Run",
+    "JUnit.PieceViewTest.testSetAndGetPosition.executor": "Run",
+    "JUnit.PieceViewTest.testSwingPieceViewInitialization.executor": "Run",
+    "JUnit.PieceViewTest.testSwingSetAndGetPosition.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "middle-front",
@@ -99,7 +125,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.YutGameLauncherApp">
+  <component name="RunManager" selected="JUnit.BoardPanelTest.testFXConstructor_initializesCorrectly">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="YutGame.app.YutGameLauncher" />
       <module name="SE_Term_project" />
@@ -116,49 +142,81 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.startPos_isZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardPanelTest.testConstructor_initializesBoardAndPieces" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SE_Term_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="YutGame.model.*" />
+          <option name="PATTERN" value="YutGame.view.swing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="YutGame.model" />
-      <option name="MAIN_CLASS_NAME" value="YutGame.model.BoardTest" />
-      <option name="METHOD_NAME" value="startPos_isZero" />
+      <option name="PACKAGE_NAME" value="YutGame.view.swing" />
+      <option name="MAIN_CLASS_NAME" value="YutGame.view.swing.BoardPanelTest" />
+      <option name="METHOD_NAME" value="testConstructor_initializesBoardAndPieces" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameControllerImplTest.endTurn_switchesCurrentPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardPanelTest.testConstructor_initializesCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SE_Term_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="YutGame.controller.*" />
+          <option name="PATTERN" value="YutGame.view.swing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="YutGame.controller" />
-      <option name="MAIN_CLASS_NAME" value="YutGame.controller.GameControllerImplTest" />
-      <option name="METHOD_NAME" value="endTurn_switchesCurrentPlayer" />
+      <option name="PACKAGE_NAME" value="YutGame.view.swing" />
+      <option name="MAIN_CLASS_NAME" value="YutGame.view.swing.BoardPanelTest" />
+      <option name="METHOD_NAME" value="testConstructor_initializesCorrectly" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameControllerImplTest.selectPiece_withoutChoose_doesNothing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardPanelTest.testFXConstructor_initializesCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SE_Term_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="YutGame.controller.*" />
+          <option name="PATTERN" value="YutGame.view.swing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="YutGame.controller" />
-      <option name="MAIN_CLASS_NAME" value="YutGame.controller.GameControllerImplTest" />
-      <option name="METHOD_NAME" value="selectPiece_withoutChoose_doesNothing" />
+      <option name="PACKAGE_NAME" value="YutGame.view.swing" />
+      <option name="MAIN_CLASS_NAME" value="YutGame.view.swing.BoardPanelTest" />
+      <option name="METHOD_NAME" value="testFXConstructor_initializesCorrectly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardPanelTest.testPositionIdMappedCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SE_Term_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="YutGame.view.swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="YutGame.view.swing" />
+      <option name="MAIN_CLASS_NAME" value="YutGame.view.swing.BoardPanelTest" />
+      <option name="METHOD_NAME" value="testPositionIdMappedCorrectly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardPanelTest.testSquareBoardPositionMapping" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SE_Term_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="YutGame.view.swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="YutGame.view.swing" />
+      <option name="MAIN_CLASS_NAME" value="YutGame.view.swing.BoardPanelTest" />
+      <option name="METHOD_NAME" value="testSquareBoardPositionMapping" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -167,15 +225,19 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.YutGameLauncherApp" />
-      <item itemvalue="JUnit.BoardTest.startPos_isZero" />
-      <item itemvalue="JUnit.GameControllerImplTest.endTurn_switchesCurrentPlayer" />
-      <item itemvalue="JUnit.GameControllerImplTest.selectPiece_withoutChoose_doesNothing" />
+      <item itemvalue="JUnit.BoardPanelTest.testConstructor_initializesBoardAndPieces" />
+      <item itemvalue="JUnit.BoardPanelTest.testConstructor_initializesCorrectly" />
+      <item itemvalue="JUnit.BoardPanelTest.testFXConstructor_initializesCorrectly" />
+      <item itemvalue="JUnit.BoardPanelTest.testPositionIdMappedCorrectly" />
+      <item itemvalue="JUnit.BoardPanelTest.testSquareBoardPositionMapping" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BoardTest.startPos_isZero" />
-        <item itemvalue="JUnit.GameControllerImplTest.endTurn_switchesCurrentPlayer" />
-        <item itemvalue="JUnit.GameControllerImplTest.selectPiece_withoutChoose_doesNothing" />
+        <item itemvalue="JUnit.BoardPanelTest.testFXConstructor_initializesCorrectly" />
+        <item itemvalue="JUnit.BoardPanelTest.testConstructor_initializesBoardAndPieces" />
+        <item itemvalue="JUnit.BoardPanelTest.testPositionIdMappedCorrectly" />
+        <item itemvalue="JUnit.BoardPanelTest.testSquareBoardPositionMapping" />
+        <item itemvalue="JUnit.BoardPanelTest.testConstructor_initializesCorrectly" />
       </list>
     </recent_temporary>
   </component>
@@ -221,10 +283,28 @@
       <workItem from="1748229541233" duration="660000" />
       <workItem from="1748429895975" duration="315000" />
       <workItem from="1748571834863" duration="1622000" />
+      <workItem from="1748575106512" duration="303000" />
+      <workItem from="1748575480517" duration="780000" />
+      <workItem from="1748588065327" duration="2348000" />
+      <workItem from="1748614322371" duration="3731000" />
+      <workItem from="1748681696808" duration="4734000" />
     </task>
+    <task id="LOCAL-00001" summary="launcher 수정, class들 rename">
+      <option name="closed" value="true" />
+      <created>1748575311855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748575311855</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="launcher 수정, class들 rename" />
+    <option name="LAST_COMMIT_MESSAGE" value="launcher 수정, class들 rename" />
   </component>
 </project>

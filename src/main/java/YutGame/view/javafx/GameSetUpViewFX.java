@@ -15,6 +15,7 @@ public class GameSetUpViewFX {
 
     private final Stage stage;
 
+    //javafx는 jframe 대신 stage 사용
     public GameSetUpViewFX(Stage stage) {
         this.stage = stage;
         stage.setTitle("윷놀이 설정");
@@ -24,6 +25,7 @@ public class GameSetUpViewFX {
         stage.centerOnScreen();
     }
 
+    //화면의 전체 구조를 담당하는 scene
     private Scene createScene() {
         VBox root = new VBox(10);
         root.setPadding(new Insets(15));
@@ -31,6 +33,7 @@ public class GameSetUpViewFX {
         return new Scene(root);
     }
 
+    //각 box는 jpanel에 대응
     private VBox playersPanel() {
         VBox box = new VBox(5);
         box.setPadding(new Insets(10));

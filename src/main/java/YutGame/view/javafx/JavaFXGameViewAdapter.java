@@ -150,7 +150,7 @@ public class JavaFXGameViewAdapter implements GameView, GameBoardViewFX.UiCallba
             }
         }
 
-        board.getBoardPanel().redraw(); // drawAll 호출
+        board.getBoardPanel().redraw(); // drawAll 호출 위함
     }
 
     private void setYutEnabled(boolean on) {

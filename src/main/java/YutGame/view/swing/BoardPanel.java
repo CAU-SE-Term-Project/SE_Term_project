@@ -24,6 +24,10 @@ public class BoardPanel extends JPanel {
         return pieceManager;
     }
 
+    public Map<Integer, Point> getPosIdToPixel() {
+        return posIdToPixel;
+    }
+
     public void updatePiece(int pieceId, int posId) {
         pieceManager.updatePiecePosition(pieceId, posId);
         repaint();
@@ -193,4 +197,6 @@ public class BoardPanel extends JPanel {
             g.drawString(id.toString(), x-6, y+5);
         }
     }
+
+
 }
