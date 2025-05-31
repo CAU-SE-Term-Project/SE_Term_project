@@ -1,5 +1,6 @@
 package YutGame.view.javafx;
 
+import YutGame.controller.GameController;
 import YutGame.model.YutResult;
 import YutGame.view.swing.BoardPanel;
 import javafx.geometry.Insets;
@@ -205,4 +206,15 @@ public class GameBoardViewFX {
     public BoardPanelFX getBoardPanel() {
         return boardPanelFX;
     }
+
+    public void refreshAllPlayerInfo(GameController controller) {
+    for (int i = 0; i < numPlayers; i++) {
+        int playerId = i + 1;
+        int remaining = controller.getRemainingPieceCount(playerId);  // ← 여기서 호출!
+        playerLabels[i].setText("Player " + playerId + " - 남은 말: " + remaining);
+    }
 }
+
+    
+}
+

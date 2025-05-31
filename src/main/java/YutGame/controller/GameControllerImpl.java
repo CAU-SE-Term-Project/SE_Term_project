@@ -2,7 +2,6 @@ package YutGame.controller;
 
 import YutGame.model.*;
 import YutGame.view.GameView;
-
 import java.util.*;
 
 public final class GameControllerImpl implements GameController {
@@ -125,4 +124,11 @@ public final class GameControllerImpl implements GameController {
     private void publishErr(Exception ex){
         publish(GameEventType.ERROR, Map.of("msg", ex.getMessage()));
     }
+
+    public int getRemainingPieceCount(int playerId) {
+    Player player = game.players().get(playerId);
+    return (int) player.pieces().stream()
+        .filter(piece -> !piece.isHome(game.board()))
+        .count();
+}
 }

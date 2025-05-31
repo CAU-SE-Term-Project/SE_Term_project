@@ -103,6 +103,9 @@ public class JavaFXGameViewAdapter implements GameView, GameBoardViewFX.UiCallba
                         }
                     }
                 }
+
+                // 말 이동 후 플레이어 정보 새로고침
+                board.refreshAllPlayerInfo(ctl);    
             }
 
             case TURN_CHANGED -> {

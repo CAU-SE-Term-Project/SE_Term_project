@@ -2,15 +2,13 @@ package YutGame.view.swing;
 
 import YutGame.controller.GameController;
 import YutGame.controller.GameEvent;
-import YutGame.controller.GameEventType;
+import YutGame.model.Board;
 import YutGame.model.MoveOutcome;
 import YutGame.model.YutResult;
-import YutGame.model.Board;
 import YutGame.view.GameView;
-
-import javax.swing.*;
 import java.util.List;
 import java.util.Map;
+import javax.swing.*;
 
 public final class SwingGameViewAdapter implements GameView, GameBoardView.UiCallback {
 
@@ -98,6 +96,7 @@ public final class SwingGameViewAdapter implements GameView, GameBoardView.UiCal
                     for (int cid : outcome.capturedPieceIds()) {
                         board.getBoardPanel().updatePiece(cid, Board.START_POS);
                     }
+                    board.refreshAllPlayerInfo(ctl);
                 } else {
                     // 기존 payload 방식
                     int pieceId = (int) p.get("pieceId");
@@ -110,6 +109,7 @@ public final class SwingGameViewAdapter implements GameView, GameBoardView.UiCal
                             board.getBoardPanel().updatePiece(cid, Board.START_POS);
                         }
                     }
+                       
                 }
                 break;
 

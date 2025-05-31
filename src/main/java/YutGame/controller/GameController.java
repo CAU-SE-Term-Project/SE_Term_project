@@ -45,4 +45,7 @@ public interface GameController {
     /** Observer 패턴 – 다중 View 지원 */
     void registerView(YutGame.view.GameView view);
     void unregisterView(YutGame.view.GameView view);
+
+    /* ---------- 남은 말 개수 구하기 ---------- */
+    public int getRemainingPieceCount(int playerId);
 }

@@ -6,3 +6,5 @@ import YutGame.controller.GameEvent;
 public interface GameView {
     void onGameEvent(GameEvent evt);
 }
+
+

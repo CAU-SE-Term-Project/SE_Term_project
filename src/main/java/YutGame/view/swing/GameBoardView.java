@@ -1,9 +1,9 @@
 package YutGame.view.swing;
 
+import YutGame.controller.GameController;
 import YutGame.model.YutResult;
-
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /** 실제 플레이 화면 */
 public class GameBoardView extends JFrame {
@@ -190,5 +190,14 @@ public class GameBoardView extends JFrame {
     public BoardPanel getBoardPanel() {
         return boardPanel;
     }
+
+    public void refreshAllPlayerInfo(GameController controller) {
+    for (int i = 0; i < numPlayers; i++) {
+        int playerId = i + 1;
+        int remaining = controller.getRemainingPieceCount(playerId);
+        playerLabels[i].setText("Player " + playerId + " - 남은 말: " + remaining);
+    }
+    this.repaint();
+}
 
 }
